@@ -1,4 +1,5 @@
 import requests
+import json
 
 #Link to Tutorial: https://www.justintodata.com/python-api-call-to-request-data/
 
@@ -7,18 +8,24 @@ api_key = ''
 
 headers = {'Authorization': 'Bearer {}'.format(api_key)}
 search_api_url = 'https://api.yelp.com/v3/businesses/search'
-params = {'term': 'coffee', 
-          'location': 'Toronto, Ontario',
-          'limit': 50}
 
 
-response = requests.get(search_api_url, headers=headers, params=params, timeout=5)
+data = []
 
+for offset in range(0, 1000, 50):
+        params = {
+            'limit': 50, 
+            'location': 'Aldgate, London',
+            'categories': 'food, restaurants, shopping, beautysvc',
+            'offset': offset
+        }
 
-print(response.url)
-print(response.status_code)
+        response = requests.get(search_api_url, headers=headers, params=params)
+        if response.status_code == 200:
+            data += response.json()['businesses']
+        elif response.status_code == 400:
+            print('400 Bad Request')
+            break
 
-data_dict = response.content
-
-with open('data.json', 'wb') as f:
-    f.write(data_dict)
+with open('data.json', 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
