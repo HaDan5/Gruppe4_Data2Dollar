@@ -23,10 +23,11 @@ class GetdataSpider(scrapy.Spider):
         sel = Selector(text=self.driver.page_source)
         #liste aller Ergebnisse auf der Seite
         #items = sel.xpath('//*[@class="listitem clear relative js-listitem "]/a')
-        items = sel.xpath('//*[@class="js-object   listitem_wrap "]')
+        #items = sel.xpath('//*[@class="js-object   listitem_wrap "]')
+        items = sel.xpath('/html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div')
         for i in range(len(items)):
         	#Ergebnis i anklicken
-        	self.driver.find_elements_by_xpath('//*[@class="listitem clear relative js-listitem "]/a')[i].click()
+        	self.driver.find_element_by_xpath('/html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div['+str(i+1)+']/div/a').click()
         	#Daten zu Ergebniss i extrahieren
         	sel = Selector(text=self.driver.page_source)
         	title = sel.xpath('//*[@class="quickfacts iw_left"]/h1').extract()
