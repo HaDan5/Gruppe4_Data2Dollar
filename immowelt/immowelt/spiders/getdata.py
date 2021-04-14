@@ -44,7 +44,7 @@ class GetdataSpider(scrapy.Spider):
         rooms = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[3]/text()').extract()
         yield {'ID': counter ,'Name': title, 'Standort': loc, 'Kaltmiete': price, 'Wohnfläche': area, 'Zimmer': rooms}
         counter = counter + 1
-        sleep (2)
+        sleep (3)
         self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div/a').click()
         #for i in range(len(items)):
         x = True
@@ -61,7 +61,7 @@ class GetdataSpider(scrapy.Spider):
         	#sleep (2)
             #self.driver.back()
             yield {'ID': counter ,'Name': title, 'Standort': loc, 'Kaltmiete': price, 'Wohnfläche': area, 'Zimmer': rooms}
-            sleep(2)
+            sleep(3)
             if has_arrow('/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div/a[2]') == False:
                 break
             counter = counter + 1
