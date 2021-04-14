@@ -22,6 +22,13 @@ class GetdataSpider(scrapy.Spider):
 
         counter = 0
 
+        def waiting_func(by_variable, attribute):
+            try:
+                WebDriverWait(self.driver, 20).until(lambda x: x.find_element(by=by_variable,  value=attribute))
+            except (NoSuchElementException, TimeoutException):
+                print('{} {} not found'.format(by_variable, attribute))
+                exit()
+
         def has_arrow(xpath):
             try:
                 self.driver.find_element_by_xpath(xpath)
@@ -37,6 +44,10 @@ class GetdataSpider(scrapy.Spider):
         #items = sel.xpath('/html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div')
         self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[2]/div/div[1]/div/a').click()
         sel = Selector(text=self.driver.page_source)
+        
+        #Warten, bis wenn der xPath gefunden wird (loading)
+        waiting_func('xpath', '/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/h1')
+
         title = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/h1/text()').extract()
         loc = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/span/text()').extract()
         price = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[1]/strong/text()').extract()
@@ -53,6 +64,10 @@ class GetdataSpider(scrapy.Spider):
         	#self.driver.find_element_by_xpath('/html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div['+str(i+1)+']/div/a').click()
         	#Daten zu Ergebniss i extrahieren
             sel = Selector(text=self.driver.page_source)
+
+            #Warten, bis wenn der xPath gefunden wird (loading)
+            waiting_func('xpath', '/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/h1')
+
             title = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/h1/text()').extract()
             loc = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/span/text()').extract()
             price = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[1]/strong/text()').extract()
