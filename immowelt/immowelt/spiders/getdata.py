@@ -30,11 +30,11 @@ class GetdataSpider(scrapy.Spider):
         	self.driver.find_element_by_xpath('/html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div['+str(i+1)+']/div/a').click()
         	#Daten zu Ergebniss i extrahieren
         	sel = Selector(text=self.driver.page_source)
-        	title = sel.xpath('//*[@class="quickfacts iw_left"]/h1').extract()
-        	loc = sel.xpath('//*[@class="no_s"').extract()
-        	price = sel.xpath('//*[@class="hardfact"][1]/strong').extract()
-        	area = sel.xpath('//*[@class="hardfact"][2]').extract()
-        	rooms = sel.xpath('//*[@class="hardfact rooms"]').extract()
+        	title = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/h1').extract()
+        	loc = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/span').extract()
+        	price = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[1]/strong').extract()
+        	area = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[2]/text()').extract()
+        	rooms = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[3]/text()').extract()
         	sleep (2)
         	self.driver.back()
         	yield {'Name': title, 'Standort': loc, 'Kaltmiete': price, 'Wohnfläche': area, 'Zimmer': rooms}
