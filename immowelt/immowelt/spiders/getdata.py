@@ -20,6 +20,8 @@ class GetdataSpider(scrapy.Spider):
         #
         self.driver.get(url)
 
+        counter = 0
+
         def has_arrow(xpath):
             try:
                 self.driver.find_element_by_xpath(xpath)
@@ -44,7 +46,6 @@ class GetdataSpider(scrapy.Spider):
         sleep (2)
         self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div/a').click()
         #for i in range(len(items)):
-        counter = 0
         x = True
         while x == True:
         	#Ergebnis i anklicken
@@ -59,7 +60,7 @@ class GetdataSpider(scrapy.Spider):
         	#sleep (2)
             #self.driver.back()
             yield {'ID': counter ,'Name': title, 'Standort': loc, 'Kaltmiete': price, 'Wohnfläche': area, 'Zimmer': rooms}
-            sleep(3)
+            sleep(2)
             if has_arrow('/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div/a[2]') == False:
                 break
             counter = counter + 1
