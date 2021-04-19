@@ -50,10 +50,37 @@ class GetdataSpider(scrapy.Spider):
 
         title = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/h1/text()').extract()
         loc = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/span/text()').extract()
-        price = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[1]/strong/text()').extract()
+        price_k = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-price/div/div/div/div[1]/div[2]/div/div[1]/div[2]/strong/text()').extract()
+        try:
+            price_w = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-price/div/div/div/div[1]/div[2]/div/div[2]/div[2]/text()').extract()
+        except:
+            price_w = null
         area = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[2]/text()').extract()
         rooms = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[3]/text()').extract()
-        yield {'ID': counter ,'Name': title, 'Standort': loc, 'Kaltmiete': price, 'Wohnfläche': area, 'Zimmer': rooms}
+        ID = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[1]/div[2]/p/text()').extract()
+        try:
+            merkmale = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-objectmeta/div/div/div[1]/div[2]/div[2]/text()').extract()
+        except:
+            merkmale = null
+        try:
+            features = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[2]/div[2]/ul/li').extract()
+        except:
+            features = null
+        try:
+            baujahr = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[3]/div[2]/ul/li[1]/text()').extract()
+        except:
+            baujahr = null
+        try:
+            descr = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-texts/div/div/div/div/div[2]/p/text()').extract()
+        except:
+            descr = null
+        try:
+            lage = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[3]/app-map/div/div[2]/div/div/div/div[2]/p/text()').extract()
+        except:
+            lage = null
+
+
+        yield {'Count': counter,'ID': ID ,'Name': title, 'Standort': loc, 'Kaltmiete': price_k, 'Warmmiete': price_w, 'Wohnfläche': area, 'Zimmer': rooms, 'Baujahr': baujahr, 'Merkmale': merkmale, 'Features': features, 'Beschreibung': descr, 'Lage': lage}
         counter = counter + 1
         sleep (3)
         self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div/a').click()
@@ -70,12 +97,37 @@ class GetdataSpider(scrapy.Spider):
 
             title = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/h1/text()').extract()
             loc = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/span/text()').extract()
-            price = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[1]/strong/text()').extract()
+            price_k = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-price/div/div/div/div[1]/div[2]/div/div[1]/div[2]/strong/text()').extract()
+            try:
+                price_w = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-price/div/div/div/div[1]/div[2]/div/div[2]/div[2]/text()').extract()
+            except:
+                price_w = null
             area = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[2]/text()').extract()
             rooms = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[3]/text()').extract()
+            ID = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[1]/div[2]/p/text()').extract()
+            try:
+                merkmale = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-objectmeta/div/div/div[1]/div[2]/div[2]/text()').extract()
+            except:
+                merkmale = null
+            try:
+                features = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[2]/div[2]/ul/li').extract()
+            except:
+                features = null
+            try:
+                baujahr = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[3]/div[2]/ul/li[1]/text()').extract()
+            except:
+                baujahr = null
+            try:
+                descr = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-texts/div/div/div/div/div[2]/p/text()').extract()
+            except:
+                descr = null
+            try:
+                lage = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[3]/app-map/div/div[2]/div/div/div/div[2]/p/text()').extract()
+            except:
+                lage = null
         	#sleep (2)
             #self.driver.back()
-            yield {'ID': counter ,'Name': title, 'Standort': loc, 'Kaltmiete': price, 'Wohnfläche': area, 'Zimmer': rooms}
+            yield {'Count': counter,'ID': ID ,'Name': title, 'Standort': loc, 'Kaltmiete': price_k, 'Warmmiete': price_w, 'Wohnfläche': area, 'Zimmer': rooms, 'Baujahr': baujahr, 'Merkmale': merkmale, 'Features': features, 'Beschreibung': descr, 'Lage': lage}
             sleep(3)
             if has_arrow('/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div/a[2]') == False:
                 break
