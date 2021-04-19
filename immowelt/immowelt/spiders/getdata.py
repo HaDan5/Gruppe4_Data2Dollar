@@ -1,6 +1,7 @@
 import scrapy
 from scrapy.selector import Selector
 
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
@@ -18,11 +19,13 @@ class GetdataSpider(scrapy.Spider):
         url = 'https://www.immowelt.de/liste/berlin/wohnungen/mieten?sort=price'
         
         #insert your driver path
-        self.driver = webdriver.Chrome('/Users/maxl/chromedriver/chromedriver')
+        #self.driver = webdriver.Chrome('/Users/maxl/chromedriver/chromedriver')
+        self.driver = webdriver.Safari()
         #
         #
         #
         self.driver.get(url)
+        sleep(3)
 
         counter = 0
 
@@ -86,7 +89,7 @@ class GetdataSpider(scrapy.Spider):
 
         yield {'Count': counter,'ID': ID ,'Name': title, 'Standort': loc, 'Kaltmiete': price_k, 'Warmmiete': price_w, 'Wohnfläche': area, 'Zimmer': rooms, 'Baujahr': baujahr, 'Merkmale': merkmale, 'Features': features, 'Beschreibung': descr, 'Lage': lage}
         counter = counter + 1
-        sleep (3)
+        sleep(3)
         self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div/a').click()
         #for i in range(len(items)):
         x = True
