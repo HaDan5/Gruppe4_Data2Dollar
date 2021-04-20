@@ -16,16 +16,17 @@ class GetdataSpider(scrapy.Spider):
     start_urls = ['https://www.immowelt.de/']
 
     def parse(self, response):
-        url = 'https://www.immowelt.de/liste/berlin/wohnungen/mieten?sort=price'
+        url = 'https://www.immowelt.de/liste/berlin/wohnungen/mieten?sort=price&cp=15'
         
         #insert your driver path
-        self.driver = webdriver.Chrome('/Users/maxl/chromedriver/chromedriver')
+        #self.driver = webdriver.Chrome('/Users/maxl/chromedriver/chromedriver')
+        self.driver = webdriver.Chrome('/Users/Alex/DRIVERS/chromedriver/chromedriver')
         #self.driver = webdriver.Safari()
         #
         #
         #
         self.driver.get(url)
-        sleep(3)
+        sleep(1)
 
         counter = 0
 
@@ -43,31 +44,41 @@ class GetdataSpider(scrapy.Spider):
             except:
                 return False
 
-        #liste aller Ergebnisse auf der Seite
-        #items = sel.xpath('//*[@class="listitem clear relative js-listitem "]/a')
-        #items = sel.xpath('//*[@class="js-object   listitem_wrap "]')
-        #items = sel.xpath('/html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div')
+
+
         x = True
         while x == True:
 
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            sleep(3)
-            #self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[2]/div/div[1]/div/a').click()
+            sleep(2)
             sel = Selector(text=self.driver.page_source)
-            items = sel.xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[2]/div/div')
+            #liste aller Ergebnisse auf der Seite
+            items1 = sel.xpath('//*[@id="listItemWrapperFixed"]/div')
+            items2 = sel.xpath('//*[@id="listItemWrapperAsync"]/div')
 
-            for i in range(len(items)):
+            sleep(1)
+
+            # Über fixe Einträge iterieren
+            for i in range(len(items1)):
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                waiting_func('xpath', '//html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div['+str(i+1)+']/div/a')
                 self.driver.find_element_by_xpath('/html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div['+str(i+1)+']/div/a').click()
-                sleep(2)
-                title = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/h1/text()').extract()
-                loc = sel.xpath('/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/span/text()').extract()
-                price_k = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-price/div/div/div/div[1]/div[2]/div/div[1]/div[2]/strong/text()').extract()
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                sleep(1)
+                title = sel.xpath('/html/head/title/text()').extract()
+                loc = sel.xpath('//*[@class="location"]/span/text()').extract()
+                price_k = sel.xpath('//*[contains(text(),"Kaltmiete")]/preceding-sibling::strong/text()').extract()
+                
+                sel = Selector(text=self.driver.page_source)
+                
                 try:
-                    price_w = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-price/div/div/div/div[1]/div[2]/div/div[2]/div[2]/text()').extract()
+                    price_w = sel.xpath('//*[contains(text(),"Warmmiete")]/following-sibling::div[1]/text()').extract()
                 except:
-                   price_w = null
-                area = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[2]/text()').extract()
-                rooms = sel.xpath('//*[@id="expose"]/div[2]/div[1]/div/div[1]/div[6]/div[3]/text()').extract()
+                    price_w = -1
+
+
+                area = sel.xpath('//*[contains(text(),"Wohnfläche")]/preceding-sibling::span/text()').extract()
+                rooms = sel.xpath('//*[@class="hardfact rooms ng-star-inserted"]/span/text()').extract()
                 ID = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[1]/div[2]/p/text()').extract()
                 try:
                     merkmale = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-objectmeta/div/div/div[1]/div[2]/div[2]/text()').extract()
@@ -93,13 +104,65 @@ class GetdataSpider(scrapy.Spider):
                 yield {'Count': counter,'ID': ID ,'Name': title, 'Standort': loc, 'Kaltmiete': price_k, 'Warmmiete': price_w, 'Wohnfläche': area, 'Zimmer': rooms, 'Baujahr': baujahr, 'Merkmale': merkmale, 'Features': features, 'Beschreibung': descr, 'Lage': lage}
                 counter = counter + 1
                 self.driver.back()
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                sleep(2)
+
+            # Über dynamische Einträge iterieren
+            for i in range(len(items2)):
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                waiting_func('xpath', '//*[@id="listItemWrapperAsync"]/div['+str(i+1)+']/div/a')
+                self.driver.find_element_by_xpath('//*[@id="listItemWrapperAsync"]/div['+str(i+1)+']/div/a').click()
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                sleep(1)
+                title = sel.xpath('/html/head/title/text()').extract()
+                loc = sel.xpath('//*[@class="location"]/span/text()').extract()
+                price_k = sel.xpath('//*[contains(text(),"Kaltmiete")]/preceding-sibling::strong/text()').extract()
+                
+                sel = Selector(text=self.driver.page_source)
+                
+
+                try:
+                    price_w = sel.xpath('//*[contains(text(),"Warmmiete")]/following-sibling::div[1]/text()').extract()
+                except:
+                    price_w = -1
+
+                area = sel.xpath('//*[contains(text(),"Wohnfläche")]/preceding-sibling::span/text()').extract()
+                rooms = sel.xpath('//*[@class="hardfact rooms ng-star-inserted"]/span/text()').extract()
+                ID = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[1]/div[2]/p/text()').extract()
+                try:
+                    merkmale = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/app-objectmeta/div/div/div[1]/div[2]/div[2]/text()').extract()
+                except:
+                    merkmale = null
+                try:
+                    features = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[2]/div[2]/ul/li').extract()
+                except:
+                    features = null
+                try:
+                    baujahr = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[3]/div[2]/ul/li[1]/text()').extract()
+                except:
+                    baujahr = null
+                try:
+                    descr = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-texts/div/div/div/div/div[2]/p/text()').extract()
+                except:
+                    descr = null
+                try:
+                    lage = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[3]/app-map/div/div[2]/div/div/div/div[2]/p/text()').extract()
+                except:
+                    lage = null
+
+                yield {'Count': counter,'ID': ID ,'Name': title, 'Standort': loc, 'Kaltmiete': price_k, 'Warmmiete': price_w, 'Wohnfläche': area, 'Zimmer': rooms, 'Baujahr': baujahr, 'Merkmale': merkmale, 'Features': features, 'Beschreibung': descr, 'Lage': lage}
+                counter = counter + 1
+                self.driver.back()
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 sleep(2)
 
             if has_arrow('//*[@id="nlbPlus"]'):
+                element = self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[5]/div/div/div/a[last()]')
+                self.driver.execute_script("arguments[0].scrollIntoView(false);", element)
                 self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[5]/div/div/div/a[last()]').click()
             else:
                 x = False
-            sleep(2)
+            sleep(1)
         
 
         self.driver.close()
