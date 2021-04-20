@@ -30,6 +30,7 @@ class GetdataSpider(scrapy.Spider):
 
         counter = 0
 
+        #Wartefunktion wartet bis eine bestimmte Variable, z.B. ein xPath, gefunden wird
         def waiting_func(by_variable, attribute):
             try:
                 WebDriverWait(self.driver, 20).until(lambda x: x.find_element(by=by_variable,  value=attribute))
@@ -37,6 +38,7 @@ class GetdataSpider(scrapy.Spider):
                 print('{} {} not found'.format(by_variable, attribute))
                 exit()
 
+        #Funktion gibt zurück, ob auf der Seite ein Element mit dem angegebenen xPath existiert, z.B. ein Pfeil auf die nächste Seite
         def has_arrow(xpath):
             try:
                 self.driver.find_element_by_xpath(xpath)
@@ -44,38 +46,39 @@ class GetdataSpider(scrapy.Spider):
             except:
                 return False
 
-
-
+        #Schleife, die so lange läuft, bis die letzte Seite erreicht wird
         x = True
         while x == True:
-
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             sleep(2)
             sel = Selector(text=self.driver.page_source)
-            #liste aller Ergebnisse auf der Seite
+            #Liste aller Ergebnisse auf der Seite, fixe und dynamische
             items1 = sel.xpath('//*[@id="listItemWrapperFixed"]/div')
             items2 = sel.xpath('//*[@id="listItemWrapperAsync"]/div')
 
             sleep(1)
 
-            # Über fixe Einträge iterieren
+            #Über fixe Einträge iterieren
             for i in range(len(items1)):
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                #warten bis i-tes Ergebnis gefunden wurde
                 waiting_func('xpath', '//html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div['+str(i+1)+']/div/a')
+                #anklicken des i-ten Ergebnisses
                 self.driver.find_element_by_xpath('/html/body/div/div[2]/div[5]/div[1]/div[2]/div[2]/div[1]/div['+str(i+1)+']/div/a').click()
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 sleep(1)
+
+                #extrahieren der Features des i-ten Ergebnisses
                 title = sel.xpath('/html/head/title/text()').extract()
                 loc = sel.xpath('//*[@class="location"]/span/text()').extract()
                 price_k = sel.xpath('//*[contains(text(),"Kaltmiete")]/preceding-sibling::strong/text()').extract()
                 
                 sel = Selector(text=self.driver.page_source)
-                
+                #einige Features werden nicht bei allen Objekten angegeben. Wo sie nicht vorhanden sind soll ein Alternativwert im Datensatz eingetragen werden
                 try:
                     price_w = sel.xpath('//*[contains(text(),"Warmmiete")]/following-sibling::div[1]/text()').extract()
                 except:
                     price_w = -1
-
 
                 area = sel.xpath('//*[contains(text(),"Wohnfläche")]/preceding-sibling::span/text()').extract()
                 rooms = sel.xpath('//*[@class="hardfact rooms ng-star-inserted"]/span/text()').extract()
@@ -110,17 +113,20 @@ class GetdataSpider(scrapy.Spider):
             # Über dynamische Einträge iterieren
             for i in range(len(items2)):
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                #warten bis i-tes Ergebnis gefunden wurde
                 waiting_func('xpath', '//*[@id="listItemWrapperAsync"]/div['+str(i+1)+']/div/a')
+                #anklicken des i-ten Ergebnisses
                 self.driver.find_element_by_xpath('//*[@id="listItemWrapperAsync"]/div['+str(i+1)+']/div/a').click()
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 sleep(1)
+
+                #extrahieren der Features des i-ten Ergebnisses
                 title = sel.xpath('/html/head/title/text()').extract()
                 loc = sel.xpath('//*[@class="location"]/span/text()').extract()
                 price_k = sel.xpath('//*[contains(text(),"Kaltmiete")]/preceding-sibling::strong/text()').extract()
                 
                 sel = Selector(text=self.driver.page_source)
-                
-
+                #einige Features werden nicht bei allen Objekten angegeben. Wo sie nicht vorhanden sind soll ein Alternativwert im Datensatz eingetragen werden
                 try:
                     price_w = sel.xpath('//*[contains(text(),"Warmmiete")]/following-sibling::div[1]/text()').extract()
                 except:
@@ -156,13 +162,16 @@ class GetdataSpider(scrapy.Spider):
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 sleep(2)
 
+            #prüfen, ob am Ende der Seite ein Pfeil auf die nächste Seite ist
             if has_arrow('//*[@id="nlbPlus"]'):
+            	#wenn ja: anklicken
                 element = self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[5]/div/div/div/a[last()]')
                 self.driver.execute_script("arguments[0].scrollIntoView(false);", element)
                 self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[5]/div/div/div/a[last()]').click()
             else:
+            	#wenn nein: der Crawler hat die Features aller Ergebnisse der letzten Seite extrahiert und ist am Ende angelangt, also wird die Schleife beendet
                 x = False
             sleep(1)
         
-
+        #der Crawler ist fertig und wird geschlossen
         self.driver.close()
