@@ -1,0 +1,2385 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20204.21.0315.1000                               -->
+<workbook original-version='18.1' source-build='2020.4.3 (20204.21.0315.1000)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='immowelt_bearbeitet_Bezirke.csv+ (Mehrere Verbindungen)' inline='true' name='federated.019j7oa0zk60s117n8zui0t0q2x5' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='immowelt_bearbeitet_Bezirke' name='textscan.1ce34nm1p7t9211bw86ph0oxl4tx'>
+            <connection class='textscan' directory='/Users/marcoppenheim/Documents/Gruppe4_Data2Dollar/immowelt/immowelt/spiders/01_Datenbearbeitung' filename='immowelt_bearbeitet_Bezirke.csv' password='' port='0' server='' />
+          </named-connection>
+          <named-connection caption='yelp_data_bearbeitet_Bezirke' name='textscan.0vbdea80dkirc017m2pb3176hh5u'>
+            <connection class='textscan' directory='/Users/marcoppenheim/Documents/Gruppe4_Data2Dollar/YELP/01_Datenbearbeitung' filename='yelp_data_bearbeitet_Bezirke.csv' password='' port='0' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1ce34nm1p7t9211bw86ph0oxl4tx' name='immowelt_bearbeitet_Bezirke.csv' table='[immowelt_bearbeitet_Bezirke#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='de_CH' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='Count' ordinal='1' />
+            <column datatype='string' name='ID' ordinal='2' />
+            <column datatype='string' name='Name' ordinal='3' />
+            <column datatype='string' name='Standort' ordinal='4' />
+            <column datatype='string' name='Kaltmiete' ordinal='5' />
+            <column datatype='string' name='Warmmiete' ordinal='6' />
+            <column datatype='string' name='Wohnfläche' ordinal='7' />
+            <column datatype='string' name='Zimmer' ordinal='8' />
+            <column datatype='integer' name='Baujahr' ordinal='9' />
+            <column datatype='string' name='Merkmale' ordinal='10' />
+            <column datatype='string' name='Features' ordinal='11' />
+            <column datatype='string' name='Beschreibung' ordinal='12' />
+            <column datatype='string' name='Lage' ordinal='13' />
+            <column datatype='integer' name='PLZ' ordinal='14' />
+            <column datatype='string' name='Bezirk' ordinal='15' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='textscan.1ce34nm1p7t9211bw86ph0oxl4tx' name='immowelt_bearbeitet_Bezirke.csv' table='[immowelt_bearbeitet_Bezirke#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='de_CH' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='integer' name='Count' ordinal='1' />
+              <column datatype='string' name='ID' ordinal='2' />
+              <column datatype='string' name='Name' ordinal='3' />
+              <column datatype='string' name='Standort' ordinal='4' />
+              <column datatype='string' name='Kaltmiete' ordinal='5' />
+              <column datatype='string' name='Warmmiete' ordinal='6' />
+              <column datatype='string' name='Wohnfläche' ordinal='7' />
+              <column datatype='string' name='Zimmer' ordinal='8' />
+              <column datatype='integer' name='Baujahr' ordinal='9' />
+              <column datatype='string' name='Merkmale' ordinal='10' />
+              <column datatype='string' name='Features' ordinal='11' />
+              <column datatype='string' name='Beschreibung' ordinal='12' />
+              <column datatype='string' name='Lage' ordinal='13' />
+              <column datatype='integer' name='PLZ' ordinal='14' />
+              <column datatype='string' name='Bezirk' ordinal='15' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0vbdea80dkirc017m2pb3176hh5u' name='yelp_data_bearbeitet_Bezirke.csv' table='[yelp_data_bearbeitet_Bezirke#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='de_CH' separator=','>
+              <column datatype='string' name='id' ordinal='0' />
+              <column datatype='string' name='alias' ordinal='1' />
+              <column datatype='string' name='name' ordinal='2' />
+              <column datatype='string' name='url' ordinal='3' />
+              <column datatype='integer' name='review_count' ordinal='4' />
+              <column datatype='real' name='rating' ordinal='5' />
+              <column datatype='string' name='price' ordinal='6' />
+              <column datatype='string' name='location.address1' ordinal='7' />
+              <column datatype='string' name='location.address2' ordinal='8' />
+              <column datatype='string' name='location.address3' ordinal='9' />
+              <column datatype='string' name='location.city' ordinal='10' />
+              <column datatype='integer' name='location.zip_code' ordinal='11' />
+              <column datatype='string' name='location.bezirk' ordinal='12' />
+              <column datatype='string' name='location.country' ordinal='13' />
+              <column datatype='string' name='location.state' ordinal='14' />
+              <column datatype='string' name='location.display_address' ordinal='15' />
+              <column datatype='string' name='category1' ordinal='16' />
+              <column datatype='string' name='title1' ordinal='17' />
+              <column datatype='string' name='category2' ordinal='18' />
+              <column datatype='string' name='title2' ordinal='19' />
+              <column datatype='string' name='category3' ordinal='20' />
+              <column datatype='string' name='title3' ordinal='21' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;de&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;CHF&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;de_CH&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;&apos;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Count]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Count</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Name]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Standort</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Standort]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Standort</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Kaltmiete</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Kaltmiete]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Kaltmiete</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Warmmiete</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Warmmiete]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Warmmiete</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Wohnfläche</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Wohnfläche]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Wohnfläche</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Zimmer</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Zimmer]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Zimmer</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Baujahr</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Baujahr]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Baujahr</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Merkmale</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Merkmale]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Merkmale</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Features</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Features]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Features</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Beschreibung</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Beschreibung]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Beschreibung</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Lage</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Lage]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Lage</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PLZ</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[PLZ]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>PLZ</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Bezirk</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Bezirk]</local-name>
+            <parent-name>[immowelt_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>Bezirk</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;de&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;CHF&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;de_CH&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;&apos;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>alias</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[alias]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>alias</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>url</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[url]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>url</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[review_count]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>review_count</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rating</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rating]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>rating</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[price]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>price</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.address1</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location.address1]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.address1</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.address2</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location.address2]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.address2</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.address3</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location.address3]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.address3</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location.city]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.city</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.zip_code</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[location.zip_code]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.zip_code</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.bezirk</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location.bezirk]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.bezirk</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location.country]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.country</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location.state]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.state</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location.display_address</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location.display_address]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>location.display_address</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category1</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category1]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>category1</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>title1</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[title1]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>title1</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category2</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category2]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>category2</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>title2</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[title2]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>title2</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category3</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category3]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>category3</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>title3</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[title3]</local-name>
+            <parent-name>[yelp_data_bearbeitet_Bezirke.csv]</parent-name>
+            <remote-alias>title3</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LDE_RDE' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[Bezirk]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column datatype='string' name='[Location.Zip Code (Gruppe)]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal'>
+        <calculation class='categorical-bin' column='[location.zip_code]' new-bin='true'>
+          <bin default-name='false' value='&quot;Charlottenburg-Wilmersdorf&quot;'>
+            <value>10585</value>
+            <value>10587</value>
+            <value>10589</value>
+            <value>10623</value>
+            <value>10625</value>
+            <value>10627</value>
+            <value>10629</value>
+            <value>10707</value>
+            <value>10709</value>
+            <value>10711</value>
+            <value>10713</value>
+            <value>10715</value>
+            <value>10717</value>
+            <value>10719</value>
+            <value>10789</value>
+            <value>13627</value>
+            <value>14050</value>
+            <value>14052</value>
+            <value>14053</value>
+            <value>14055</value>
+            <value>14057</value>
+            <value>14059</value>
+            <value>14193</value>
+            <value>14197</value>
+            <value>14199</value>
+          </bin>
+          <bin default-name='false' value='&quot;Friedrichshain-Kreuzberg&quot;'>
+            <value>10243</value>
+            <value>10245</value>
+            <value>10247</value>
+            <value>10249</value>
+            <value>10961</value>
+            <value>10963</value>
+            <value>10965</value>
+            <value>10967</value>
+            <value>10969</value>
+            <value>10997</value>
+            <value>10999</value>
+          </bin>
+          <bin default-name='false' value='&quot;Lichtenberg&quot;'>
+            <value>10315</value>
+            <value>10317</value>
+            <value>10318</value>
+            <value>10319</value>
+            <value>10365</value>
+            <value>10367</value>
+            <value>10369</value>
+            <value>13051</value>
+            <value>13053</value>
+            <value>13055</value>
+            <value>13057</value>
+            <value>13059</value>
+          </bin>
+          <bin default-name='false' value='&quot;Marzahn-Hellersdorf&quot;'>
+            <value>12619</value>
+            <value>12621</value>
+            <value>12623</value>
+            <value>12627</value>
+            <value>12629</value>
+            <value>12679</value>
+            <value>12681</value>
+            <value>12683</value>
+            <value>12685</value>
+            <value>12687</value>
+            <value>12689</value>
+          </bin>
+          <bin default-name='false' value='&quot;Mitte&quot;'>
+            <value>10115</value>
+            <value>10117</value>
+            <value>10119</value>
+            <value>10178</value>
+            <value>10179</value>
+            <value>10551</value>
+            <value>10553</value>
+            <value>10555</value>
+            <value>10557</value>
+            <value>10559</value>
+            <value>10785</value>
+            <value>10787</value>
+            <value>13347</value>
+            <value>13349</value>
+            <value>13351</value>
+            <value>13353</value>
+            <value>13355</value>
+            <value>13357</value>
+            <value>13359</value>
+          </bin>
+          <bin default-name='false' value='&quot;Neukölln&quot;'>
+            <value>12043</value>
+            <value>12045</value>
+            <value>12047</value>
+            <value>12049</value>
+            <value>12051</value>
+            <value>12053</value>
+            <value>12055</value>
+            <value>12057</value>
+            <value>12059</value>
+            <value>12347</value>
+            <value>12349</value>
+            <value>12351</value>
+            <value>12353</value>
+            <value>12355</value>
+            <value>12357</value>
+            <value>12359</value>
+          </bin>
+          <bin default-name='false' value='&quot;Pankow&quot;'>
+            <value>10405</value>
+            <value>10407</value>
+            <value>10409</value>
+            <value>10435</value>
+            <value>10437</value>
+            <value>10439</value>
+            <value>13086</value>
+            <value>13088</value>
+            <value>13089</value>
+            <value>13125</value>
+            <value>13127</value>
+            <value>13129</value>
+            <value>13156</value>
+            <value>13158</value>
+            <value>13159</value>
+            <value>13187</value>
+            <value>13189</value>
+          </bin>
+          <bin default-name='false' value='&quot;Reinickendorf&quot;'>
+            <value>13403</value>
+            <value>13405</value>
+            <value>13407</value>
+            <value>13409</value>
+            <value>13435</value>
+            <value>13437</value>
+            <value>13439</value>
+            <value>13465</value>
+            <value>13467</value>
+            <value>13469</value>
+            <value>13503</value>
+            <value>13505</value>
+            <value>13507</value>
+            <value>13509</value>
+          </bin>
+          <bin default-name='false' value='&quot;Spandau&quot;'>
+            <value>13581</value>
+            <value>13583</value>
+            <value>13585</value>
+            <value>13587</value>
+            <value>13589</value>
+            <value>13591</value>
+            <value>13593</value>
+            <value>13595</value>
+            <value>13597</value>
+            <value>13599</value>
+            <value>13629</value>
+            <value>14089</value>
+          </bin>
+          <bin default-name='false' value='&quot;Steglitz-Zehlendorf&quot;'>
+            <value>12163</value>
+            <value>12165</value>
+            <value>12167</value>
+            <value>12169</value>
+            <value>12203</value>
+            <value>12205</value>
+            <value>12207</value>
+            <value>12209</value>
+            <value>12247</value>
+            <value>12249</value>
+            <value>14109</value>
+            <value>14129</value>
+            <value>14163</value>
+            <value>14165</value>
+            <value>14167</value>
+            <value>14169</value>
+            <value>14195</value>
+          </bin>
+          <bin default-name='false' value='&quot;Tempelhof-Schöneberg&quot;'>
+            <value>10777</value>
+            <value>10779</value>
+            <value>10781</value>
+            <value>10783</value>
+            <value>10823</value>
+            <value>10825</value>
+            <value>10827</value>
+            <value>10829</value>
+            <value>12099</value>
+            <value>12101</value>
+            <value>12103</value>
+            <value>12105</value>
+            <value>12107</value>
+            <value>12109</value>
+            <value>12157</value>
+            <value>12159</value>
+            <value>12161</value>
+            <value>12277</value>
+            <value>12279</value>
+            <value>12305</value>
+            <value>12307</value>
+            <value>12309</value>
+          </bin>
+          <bin default-name='false' value='&quot;Treptow-Köpenick&quot;'>
+            <value>12435</value>
+            <value>12437</value>
+            <value>12439</value>
+            <value>12459</value>
+            <value>12487</value>
+            <value>12489</value>
+            <value>12524</value>
+            <value>12526</value>
+            <value>12527</value>
+            <value>12555</value>
+            <value>12557</value>
+            <value>12559</value>
+            <value>12587</value>
+            <value>12589</value>
+          </bin>
+        </calculation>
+      </column>
+      <column aggregation='Sum' datatype='integer' default-format='*00000' name='[PLZ]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal' />
+      <_.fcp.ObjectModelTableType.true...column caption='immowelt_bearbeitet_Bezirke.csv' datatype='table' name='[__tableau_internal_object_id__].[immowelt_bearbeitet_Bezirke.csv_E323FF656CFB43DA90F03DFAAA62F2E7]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='yelp_data_bearbeitet_Bezirke.csv' datatype='table' name='[__tableau_internal_object_id__].[yelp_data_bearbeitet_Bezirke.csv_BA08504486F3483AA5D6A6CE4B8AD11C]' role='measure' type='quantitative' />
+      <column caption='Alias' datatype='string' name='[alias]' role='dimension' type='nominal' />
+      <column caption='Category1' datatype='string' name='[category1]' role='dimension' type='nominal' />
+      <column caption='Category2' datatype='string' name='[category2]' role='dimension' type='nominal' />
+      <column caption='Category3' datatype='string' name='[category3]' role='dimension' type='nominal' />
+      <column caption='Id' datatype='string' name='[id]' role='dimension' type='nominal' />
+      <column caption='Location.Address1' datatype='string' name='[location.address1]' role='dimension' type='nominal' />
+      <column caption='Location.Address2' datatype='string' name='[location.address2]' role='dimension' type='nominal' />
+      <column caption='Location.Address3' datatype='string' name='[location.address3]' role='dimension' type='nominal' />
+      <column caption='Location.Bezirk' datatype='string' name='[location.bezirk]' role='dimension' type='nominal' />
+      <column caption='Location.City' datatype='string' name='[location.city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Location.Country' datatype='string' name='[location.country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Location.Display Address' datatype='string' name='[location.display_address]' role='dimension' type='nominal' />
+      <column caption='Location.State' datatype='string' name='[location.state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column aggregation='Sum' caption='Location.Zip Code' datatype='integer' default-format='*00000' name='[location.zip_code]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal' />
+      <column caption='Name1' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <column caption='Price' datatype='string' name='[price]' role='dimension' type='nominal' />
+      <column caption='Rating' datatype='real' name='[rating]' role='measure' type='quantitative' />
+      <column caption='Review Count' datatype='integer' name='[review_count]' role='measure' type='quantitative' />
+      <column caption='Title1' datatype='string' name='[title1]' role='dimension' type='nominal' />
+      <column caption='Title2' datatype='string' name='[title2]' role='dimension' type='nominal' />
+      <column caption='Title3' datatype='string' name='[title3]' role='dimension' type='nominal' />
+      <column caption='Url' datatype='string' name='[url]' role='dimension' type='nominal' />
+      <column-instance column='[location.zip_code]' derivation='None' name='[none:location.zip_code:ok]' pivot='key' type='ordinal' />
+      <group hidden='true' name='[Ausschlüsse (Location.Zip Code,Location.Zip Code (Gruppe))]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:location.zip_code:ok]' />
+          <groupfilter function='level-members' level='[Location.Zip Code (Gruppe)]' />
+        </groupfilter>
+      </group>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[Location.Zip Code (Gruppe)]' palette='tableau20_10_0' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;10362&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;13377&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;15345&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;16356&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Steglitz-Zehlendorf&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;12345&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;14055&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;14513&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;15745&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Friedrichshain-Kreuzberg&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;10112&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;12521&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;14612&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;15831&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Neukölln&quot;</bucket>
+            </map>
+            <map to='#5fbb68'>
+              <bucket>&quot;15366&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;10728&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;14467&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;15537&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;16548&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;19178&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;10400&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;13415&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;16515&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Tempelhof-Schöneberg&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;10175&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;12529&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;12625&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;14624&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;16321&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Pankow&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;101273&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;12154&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;14480&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;15738&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;16761&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;1024&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;12363&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;14532&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lichtenberg&quot;</bucket>
+            </map>
+            <map to='#a2a2a2'>
+              <bucket>&quot;Andere&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;11011&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;14476&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;15713&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;16567&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;47051&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;10177&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;12636&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;14974&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;16341&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Reinickendorf&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;10798&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;14469&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;15562&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;16552&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;19823&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;10835&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;14471&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;15566&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;16556&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;19965&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;11220&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;14478&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;15732&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;16727&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;80517&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;12245&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;14482&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;15741&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Charlottenburg-Wilmersdorf&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;10459&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;14432&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;15370&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;16540&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Treptow-Köpenick&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;10347&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;12680&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;14979&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;16348&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Spandau&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;12402&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;1255&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;14552&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;15806&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Marzahn-Hellersdorf&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;10977&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;14473&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;15569&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;16562&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;23946&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;10718&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;15528&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;15758&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;16547&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;10099&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;12457&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;14558&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;15827&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Mitte&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Deutschland&quot;' />
+        <semantic-value key='[ZipCode].[Name]' value='%null%' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='immowelt_bearbeitet_Bezirke.csv' id='immowelt_bearbeitet_Bezirke.csv_E323FF656CFB43DA90F03DFAAA62F2E7'>
+            <properties context=''>
+              <relation connection='textscan.1ce34nm1p7t9211bw86ph0oxl4tx' name='immowelt_bearbeitet_Bezirke.csv' table='[immowelt_bearbeitet_Bezirke#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='de_CH' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='integer' name='Count' ordinal='1' />
+                  <column datatype='string' name='ID' ordinal='2' />
+                  <column datatype='string' name='Name' ordinal='3' />
+                  <column datatype='string' name='Standort' ordinal='4' />
+                  <column datatype='string' name='Kaltmiete' ordinal='5' />
+                  <column datatype='string' name='Warmmiete' ordinal='6' />
+                  <column datatype='string' name='Wohnfläche' ordinal='7' />
+                  <column datatype='string' name='Zimmer' ordinal='8' />
+                  <column datatype='integer' name='Baujahr' ordinal='9' />
+                  <column datatype='string' name='Merkmale' ordinal='10' />
+                  <column datatype='string' name='Features' ordinal='11' />
+                  <column datatype='string' name='Beschreibung' ordinal='12' />
+                  <column datatype='string' name='Lage' ordinal='13' />
+                  <column datatype='integer' name='PLZ' ordinal='14' />
+                  <column datatype='string' name='Bezirk' ordinal='15' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='yelp_data_bearbeitet_Bezirke.csv' id='yelp_data_bearbeitet_Bezirke.csv_BA08504486F3483AA5D6A6CE4B8AD11C'>
+            <properties context=''>
+              <relation connection='textscan.0vbdea80dkirc017m2pb3176hh5u' name='yelp_data_bearbeitet_Bezirke.csv' table='[yelp_data_bearbeitet_Bezirke#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='de_CH' separator=','>
+                  <column datatype='string' name='id' ordinal='0' />
+                  <column datatype='string' name='alias' ordinal='1' />
+                  <column datatype='string' name='name' ordinal='2' />
+                  <column datatype='string' name='url' ordinal='3' />
+                  <column datatype='integer' name='review_count' ordinal='4' />
+                  <column datatype='real' name='rating' ordinal='5' />
+                  <column datatype='string' name='price' ordinal='6' />
+                  <column datatype='string' name='location.address1' ordinal='7' />
+                  <column datatype='string' name='location.address2' ordinal='8' />
+                  <column datatype='string' name='location.address3' ordinal='9' />
+                  <column datatype='string' name='location.city' ordinal='10' />
+                  <column datatype='integer' name='location.zip_code' ordinal='11' />
+                  <column datatype='string' name='location.bezirk' ordinal='12' />
+                  <column datatype='string' name='location.country' ordinal='13' />
+                  <column datatype='string' name='location.state' ordinal='14' />
+                  <column datatype='string' name='location.display_address' ordinal='15' />
+                  <column datatype='string' name='category1' ordinal='16' />
+                  <column datatype='string' name='title1' ordinal='17' />
+                  <column datatype='string' name='category2' ordinal='18' />
+                  <column datatype='string' name='title2' ordinal='19' />
+                  <column datatype='string' name='category3' ordinal='20' />
+                  <column datatype='string' name='title3' ordinal='21' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[PLZ]' />
+              <expression op='[location.zip_code]' />
+            </expression>
+            <first-end-point object-id='immowelt_bearbeitet_Bezirke.csv_E323FF656CFB43DA90F03DFAAA62F2E7' />
+            <second-end-point object-id='yelp_data_bearbeitet_Bezirke.csv_BA08504486F3483AA5D6A6CE4B8AD11C' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Blatt 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='immowelt_bearbeitet_Bezirke.csv+ (Mehrere Verbindungen)' name='federated.019j7oa0zk60s117n8zui0t0q2x5' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.019j7oa0zk60s117n8zui0t0q2x5'>
+            <column datatype='string' name='[Kaltmiete]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Location.Zip Code (Gruppe)]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal'>
+              <calculation class='categorical-bin' column='[location.zip_code]' new-bin='true'>
+                <bin default-name='false' value='&quot;Charlottenburg-Wilmersdorf&quot;'>
+                  <value>10585</value>
+                  <value>10587</value>
+                  <value>10589</value>
+                  <value>10623</value>
+                  <value>10625</value>
+                  <value>10627</value>
+                  <value>10629</value>
+                  <value>10707</value>
+                  <value>10709</value>
+                  <value>10711</value>
+                  <value>10713</value>
+                  <value>10715</value>
+                  <value>10717</value>
+                  <value>10719</value>
+                  <value>10789</value>
+                  <value>13627</value>
+                  <value>14050</value>
+                  <value>14052</value>
+                  <value>14053</value>
+                  <value>14055</value>
+                  <value>14057</value>
+                  <value>14059</value>
+                  <value>14193</value>
+                  <value>14197</value>
+                  <value>14199</value>
+                </bin>
+                <bin default-name='false' value='&quot;Friedrichshain-Kreuzberg&quot;'>
+                  <value>10243</value>
+                  <value>10245</value>
+                  <value>10247</value>
+                  <value>10249</value>
+                  <value>10961</value>
+                  <value>10963</value>
+                  <value>10965</value>
+                  <value>10967</value>
+                  <value>10969</value>
+                  <value>10997</value>
+                  <value>10999</value>
+                </bin>
+                <bin default-name='false' value='&quot;Lichtenberg&quot;'>
+                  <value>10315</value>
+                  <value>10317</value>
+                  <value>10318</value>
+                  <value>10319</value>
+                  <value>10365</value>
+                  <value>10367</value>
+                  <value>10369</value>
+                  <value>13051</value>
+                  <value>13053</value>
+                  <value>13055</value>
+                  <value>13057</value>
+                  <value>13059</value>
+                </bin>
+                <bin default-name='false' value='&quot;Marzahn-Hellersdorf&quot;'>
+                  <value>12619</value>
+                  <value>12621</value>
+                  <value>12623</value>
+                  <value>12627</value>
+                  <value>12629</value>
+                  <value>12679</value>
+                  <value>12681</value>
+                  <value>12683</value>
+                  <value>12685</value>
+                  <value>12687</value>
+                  <value>12689</value>
+                </bin>
+                <bin default-name='false' value='&quot;Mitte&quot;'>
+                  <value>10115</value>
+                  <value>10117</value>
+                  <value>10119</value>
+                  <value>10178</value>
+                  <value>10179</value>
+                  <value>10551</value>
+                  <value>10553</value>
+                  <value>10555</value>
+                  <value>10557</value>
+                  <value>10559</value>
+                  <value>10785</value>
+                  <value>10787</value>
+                  <value>13347</value>
+                  <value>13349</value>
+                  <value>13351</value>
+                  <value>13353</value>
+                  <value>13355</value>
+                  <value>13357</value>
+                  <value>13359</value>
+                </bin>
+                <bin default-name='false' value='&quot;Neukölln&quot;'>
+                  <value>12043</value>
+                  <value>12045</value>
+                  <value>12047</value>
+                  <value>12049</value>
+                  <value>12051</value>
+                  <value>12053</value>
+                  <value>12055</value>
+                  <value>12057</value>
+                  <value>12059</value>
+                  <value>12347</value>
+                  <value>12349</value>
+                  <value>12351</value>
+                  <value>12353</value>
+                  <value>12355</value>
+                  <value>12357</value>
+                  <value>12359</value>
+                </bin>
+                <bin default-name='false' value='&quot;Pankow&quot;'>
+                  <value>10405</value>
+                  <value>10407</value>
+                  <value>10409</value>
+                  <value>10435</value>
+                  <value>10437</value>
+                  <value>10439</value>
+                  <value>13086</value>
+                  <value>13088</value>
+                  <value>13089</value>
+                  <value>13125</value>
+                  <value>13127</value>
+                  <value>13129</value>
+                  <value>13156</value>
+                  <value>13158</value>
+                  <value>13159</value>
+                  <value>13187</value>
+                  <value>13189</value>
+                </bin>
+                <bin default-name='false' value='&quot;Reinickendorf&quot;'>
+                  <value>13403</value>
+                  <value>13405</value>
+                  <value>13407</value>
+                  <value>13409</value>
+                  <value>13435</value>
+                  <value>13437</value>
+                  <value>13439</value>
+                  <value>13465</value>
+                  <value>13467</value>
+                  <value>13469</value>
+                  <value>13503</value>
+                  <value>13505</value>
+                  <value>13507</value>
+                  <value>13509</value>
+                </bin>
+                <bin default-name='false' value='&quot;Spandau&quot;'>
+                  <value>13581</value>
+                  <value>13583</value>
+                  <value>13585</value>
+                  <value>13587</value>
+                  <value>13589</value>
+                  <value>13591</value>
+                  <value>13593</value>
+                  <value>13595</value>
+                  <value>13597</value>
+                  <value>13599</value>
+                  <value>13629</value>
+                  <value>14089</value>
+                </bin>
+                <bin default-name='false' value='&quot;Steglitz-Zehlendorf&quot;'>
+                  <value>12163</value>
+                  <value>12165</value>
+                  <value>12167</value>
+                  <value>12169</value>
+                  <value>12203</value>
+                  <value>12205</value>
+                  <value>12207</value>
+                  <value>12209</value>
+                  <value>12247</value>
+                  <value>12249</value>
+                  <value>14109</value>
+                  <value>14129</value>
+                  <value>14163</value>
+                  <value>14165</value>
+                  <value>14167</value>
+                  <value>14169</value>
+                  <value>14195</value>
+                </bin>
+                <bin default-name='false' value='&quot;Tempelhof-Schöneberg&quot;'>
+                  <value>10777</value>
+                  <value>10779</value>
+                  <value>10781</value>
+                  <value>10783</value>
+                  <value>10823</value>
+                  <value>10825</value>
+                  <value>10827</value>
+                  <value>10829</value>
+                  <value>12099</value>
+                  <value>12101</value>
+                  <value>12103</value>
+                  <value>12105</value>
+                  <value>12107</value>
+                  <value>12109</value>
+                  <value>12157</value>
+                  <value>12159</value>
+                  <value>12161</value>
+                  <value>12277</value>
+                  <value>12279</value>
+                  <value>12305</value>
+                  <value>12307</value>
+                  <value>12309</value>
+                </bin>
+                <bin default-name='false' value='&quot;Treptow-Köpenick&quot;'>
+                  <value>12435</value>
+                  <value>12437</value>
+                  <value>12439</value>
+                  <value>12459</value>
+                  <value>12487</value>
+                  <value>12489</value>
+                  <value>12524</value>
+                  <value>12526</value>
+                  <value>12527</value>
+                  <value>12555</value>
+                  <value>12557</value>
+                  <value>12559</value>
+                  <value>12587</value>
+                  <value>12589</value>
+                </bin>
+              </calculation>
+            </column>
+            <column-instance column='[Kaltmiete]' derivation='Avg' name='[avg:Kaltmiete:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Location.Zip Code' datatype='integer' default-format='*00000' name='[location.zip_code]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal' />
+            <column-instance column='[location.zip_code]' derivation='None' name='[none:location.zip_code:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.019j7oa0zk60s117n8zui0t0q2x5].[Ausschlüsse (Location.Zip Code,Location.Zip Code (Gruppe))]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[none:location.zip_code:ok]' />
+                <groupfilter function='level-members' level='[Location.Zip Code (Gruppe)]' />
+              </groupfilter>
+              <groupfilter function='reorder-dimensionality'>
+                <groupfilter function='union'>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;12529&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='12529' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14467&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14467' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14469&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14469' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14471&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14471' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14473&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14473' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14476&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14476' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14478&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14478' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14480&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14480' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14482&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14482' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14513&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14513' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14532&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14532' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14552&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14552' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14558&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14558' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14612&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14612' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14624&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14624' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14974&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14974' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;14979&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='14979' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15345&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15345' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15366&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15366' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15370&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15370' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15528&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15528' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15537&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15537' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15562&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15562' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15566&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15566' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15569&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15569' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15713&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15713' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15732&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15732' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15738&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15738' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15741&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15741' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15745&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15745' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15806&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15806' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15827&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15827' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;15831&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='15831' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16321&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16321' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16341&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16341' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16348&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16348' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16356&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16356' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16515&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16515' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16540&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16540' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16547&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16547' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16548&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16548' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16552&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16552' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16556&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16556' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16562&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16562' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16567&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16567' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16727&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16727' />
+                  </groupfilter>
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='member' level='[Location.Zip Code (Gruppe)]' member='&quot;16761&quot;' />
+                    <groupfilter function='member' level='[none:location.zip_code:ok]' member='16761' />
+                  </groupfilter>
+                </groupfilter>
+                <order>
+                  <hierarchy name='[none:location.zip_code:ok]' />
+                  <hierarchy name='[Location.Zip Code (Gruppe)]' />
+                </order>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.019j7oa0zk60s117n8zui0t0q2x5].[none:location.zip_code:ok]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:location.zip_code:ok]' />
+              <groupfilter function='member' level='[none:location.zip_code:ok]' member='14669' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.019j7oa0zk60s117n8zui0t0q2x5].[none:location.zip_code:ok]</column>
+            <column>[federated.019j7oa0zk60s117n8zui0t0q2x5].[Ausschlüsse (Location.Zip Code,Location.Zip Code (Gruppe))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.019j7oa0zk60s117n8zui0t0q2x5].[Longitude (generated)]' field-type='quantitative' max='1604020.4767670827' min='1439212.2792166073' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.019j7oa0zk60s117n8zui0t0q2x5].[Latitude (generated)]' field-type='quantitative' max='6935437.7089003092' min='6823368.1333871847' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <text column='[federated.019j7oa0zk60s117n8zui0t0q2x5].[Location.Zip Code (Gruppe)]' />
+              <color column='[federated.019j7oa0zk60s117n8zui0t0q2x5].[avg:Kaltmiete:ok]' />
+              <geometry column='[federated.019j7oa0zk60s117n8zui0t0q2x5].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.019j7oa0zk60s117n8zui0t0q2x5].[Latitude (generated)]</rows>
+        <cols>[federated.019j7oa0zk60s117n8zui0t0q2x5].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{B188EEC7-5C1B-4425-9F1F-F5773E6E352A}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Blatt 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card pane-specification-id='0' param='[federated.019j7oa0zk60s117n8zui0t0q2x5].[avg:Kaltmiete:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.019j7oa0zk60s117n8zui0t0q2x5].[avg:Kaltmiete:ok]</field>
+            <field>[federated.019j7oa0zk60s117n8zui0t0q2x5].[none:PLZ:ok]</field>
+            <field>[federated.019j7oa0zk60s117n8zui0t0q2x5].[none:location.zip_code:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{C479D392-4B20-4FF3-86E8-C1554C46C37D}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Blatt 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
