@@ -16,7 +16,7 @@ class GetdataSpider(scrapy.Spider):
     start_urls = ['https://www.immowelt.de/']
 
     def parse(self, response):
-        url = 'https://www.immowelt.de/liste/berlin/wohnungen/mieten?sort=price&cp=15'
+        url = 'https://www.immowelt.de/liste/berlin/wohnungen/mieten?sort=price'
         
         #insert your driver path
         self.driver = webdriver.Chrome('/Users/maxl/chromedriver/chromedriver')
@@ -165,8 +165,8 @@ class GetdataSpider(scrapy.Spider):
             #prüfen, ob am Ende der Seite ein Pfeil auf die nächste Seite ist
             if has_arrow('//*[@id="nlbPlus"]'):
             	#wenn ja: anklicken
-                element = self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[5]/div/div/div/a[last()]')
-                self.driver.execute_script("arguments[0].scrollIntoView(false);", element)
+                #element = self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[5]/div/div/div/a[last()]')
+                #self.driver.execute_script("arguments[0].scrollIntoView(false);", element)
                 self.driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[5]/div[1]/div[2]/div[5]/div/div/div/a[last()]').click()
             else:
             	#wenn nein: der Crawler hat die Features aller Ergebnisse der letzten Seite extrahiert und ist am Ende angelangt, also wird die Schleife beendet
