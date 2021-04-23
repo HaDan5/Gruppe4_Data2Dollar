@@ -68,12 +68,12 @@ class GetdataSpider(scrapy.Spider):
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 sleep(1)
 
+                sel = Selector(text=self.driver.page_source)
                 #extrahieren der Features des i-ten Ergebnisses
                 title = sel.xpath('/html/head/title/text()').extract()
                 loc = sel.xpath('//*[@class="location"]/span/text()').extract()
                 price_k = sel.xpath('//*[contains(text(),"Kaltmiete")]/preceding-sibling::strong/text()').extract()
                 
-                sel = Selector(text=self.driver.page_source)
                 #einige Features werden nicht bei allen Objekten angegeben. Wo sie nicht vorhanden sind soll ein Alternativwert im Datensatz eingetragen werden
                 try:
                     price_w = sel.xpath('//*[contains(text(),"Warmmiete")]/following-sibling::div[1]/text()').extract()
@@ -120,12 +120,12 @@ class GetdataSpider(scrapy.Spider):
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 sleep(1)
 
+                sel = Selector(text=self.driver.page_source)
                 #extrahieren der Features des i-ten Ergebnisses
                 title = sel.xpath('/html/head/title/text()').extract()
                 loc = sel.xpath('//*[@class="location"]/span/text()').extract()
                 price_k = sel.xpath('//*[contains(text(),"Kaltmiete")]/preceding-sibling::strong/text()').extract()
                 
-                sel = Selector(text=self.driver.page_source)
                 #einige Features werden nicht bei allen Objekten angegeben. Wo sie nicht vorhanden sind soll ein Alternativwert im Datensatz eingetragen werden
                 try:
                     price_w = sel.xpath('//*[contains(text(),"Warmmiete")]/following-sibling::div[1]/text()').extract()
