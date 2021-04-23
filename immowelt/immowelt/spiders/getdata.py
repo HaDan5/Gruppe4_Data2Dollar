@@ -19,8 +19,8 @@ class GetdataSpider(scrapy.Spider):
         url = 'https://www.immowelt.de/liste/berlin/wohnungen/mieten?sort=price&cp=15'
         
         #insert your driver path
-        #self.driver = webdriver.Chrome('/Users/maxl/chromedriver/chromedriver')
-        self.driver = webdriver.Chrome('/Users/Alex/DRIVERS/chromedriver/chromedriver')
+        self.driver = webdriver.Chrome('/Users/maxl/chromedriver/chromedriver')
+        #self.driver = webdriver.Chrome('/Users/Alex/DRIVERS/chromedriver/chromedriver')
         #self.driver = webdriver.Safari()
         #
         #
