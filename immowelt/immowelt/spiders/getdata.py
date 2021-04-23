@@ -88,7 +88,7 @@ class GetdataSpider(scrapy.Spider):
                 except:
                     merkmale = null
                 try:
-                    features = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[2]/div[2]/ul/li').extract()
+                    features = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[2]/div[2]/ul/li/text()').extract()
                 except:
                     features = null
                 try:
@@ -140,7 +140,7 @@ class GetdataSpider(scrapy.Spider):
                 except:
                     merkmale = null
                 try:
-                    features = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[2]/div[2]/ul/li').extract()
+                    features = sel.xpath('/html/body/app-root/div/div/div/div[2]/main/app-expose/div/div[2]/app-estate-object-informations/div/div/div[1]/div[2]/div[2]/ul/li/text()').extract()
                 except:
                     features = null
                 try:
