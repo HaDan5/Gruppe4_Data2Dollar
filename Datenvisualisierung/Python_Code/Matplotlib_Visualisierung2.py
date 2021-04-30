@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 
 plt.style.use("seaborn")
 
-data = pd.read_csv("Immowelt7.csv")
+data = pd.read_csv("Immowelt_bearbeitet_Bezirke_Kopie.csv")
 Baujahr = data["Baujahr"]
 Mietpreise = data["Kaltmiete"]
 Wohnfläche = data["Wohnfläche"]

@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 
 plt.xkcd()
 
-with open("immowelt.csv") as csv_file:
+with open("immowelt_bearbeitet_Bezirke_Kopie.csv") as csv_file:
 	csv_reader = csv.DictReader(csv_file)
 
 	Bezirke_Counter = Counter()
@@ -32,6 +32,7 @@ plt.barh(Bezirke, Anzahl_Objekte, color=["#FFC900", "#FFB500", "#FF9800", "#FF80
 plt.title("Verfügbare Objekte in Berlin")
 
 plt.xlabel("Anzahl Objekte")
+
 plt.tight_layout()
 
 
